@@ -12,35 +12,29 @@ import java.awt.GridLayout;
 import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextField;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-/**
- *
- * @author Asus
- */
-public class RegistrarUsuario implements ActionListener {
+public class RegistrarUsuario extends Frame {
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
+    private Button registrar;
 
-        Frame ventanaUsuario = new Frame("Registrar Usuario");
-        ventanaUsuario.setSize(700, 500);
-        ventanaUsuario.setLayout(new BorderLayout());
+    public RegistrarUsuario() {
+        setTitle("Registrar Usuario");
+        setSize(700, 500);
+        setLayout(new BorderLayout());
 
         Label tituloUsuario = new Label("Registrar Usuario", Label.CENTER);
 
-        Panel panelUsuario = new Panel(new GridLayout(6, 1));
+        Panel panelUsuario = new Panel(new GridLayout(5, 1, 5, 5));
 
         TextField ingresarCedula = new TextField(20);
         TextField ingresarNombre = new TextField(20);
         TextField ingresarCorreo = new TextField(20);
         TextField ingresarTelefono = new TextField(20);
 
-        Label cedula = new Label("Cedula");
-        Label nombre = new Label("Nombre");
-        Label correo = new Label("Correo");
-        Label telefono = new Label("Telefono");
+        Label cedula = new Label("Cedula:");
+        Label nombre = new Label("Nombre:");
+        Label correo = new Label("Correo:");
+        Label telefono = new Label("Telefono:");
 
         Panel panelCedula = new Panel(new FlowLayout(FlowLayout.CENTER));
         panelCedula.add(cedula);
@@ -58,7 +52,7 @@ public class RegistrarUsuario implements ActionListener {
         panelTelefono.add(telefono);
         panelTelefono.add(ingresarTelefono);
 
-        Button registrar = new Button("Registrar");
+        registrar = new Button("Registrar");
 
         Panel panelRegistrar = new Panel(new FlowLayout(FlowLayout.CENTER));
         panelRegistrar.add(registrar);
@@ -69,14 +63,11 @@ public class RegistrarUsuario implements ActionListener {
         panelUsuario.add(panelTelefono);
         panelUsuario.add(panelRegistrar);
 
-        ventanaUsuario.add(tituloUsuario, BorderLayout.NORTH);
-        ventanaUsuario.add(panelUsuario, BorderLayout.CENTER);
-
-        RegistrarLibro ventanaLibro = new RegistrarLibro();
-        registrar.addActionListener(new AccionesDeRaton(ventanaUsuario, ventanaLibro));
-
-        ventanaUsuario.setVisible(true);
-
+        add(tituloUsuario, BorderLayout.NORTH);
+        add(panelUsuario, BorderLayout.CENTER);
     }
 
+    public Button getRegistrar() {
+        return registrar;
+    }
 }
