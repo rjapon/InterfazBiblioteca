@@ -1,8 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
 package ec.edu.ups.inferfazbiblioteca;
 
+import ec.edu.ups.inferfazbiblioteca.Clases.AccionesDeRaton;
 import ec.edu.ups.inferfazbiblioteca.Clases.RegistrarUsuario;
 import java.awt.BorderLayout;
 import java.awt.Button;
@@ -104,7 +102,7 @@ public class InferfazBiblioteca {
         panelCentro.add(panelBotones);
         panelCentro.add(new Label(""));
         
-        registrar.addActionListener(new RegistrarUsuario());
+        registrar.addActionListener(new AccionesDeRaton(home, new RegistrarUsuario()));
 
         home.add(panelGeneral);
         home.setSize(700, 400);
